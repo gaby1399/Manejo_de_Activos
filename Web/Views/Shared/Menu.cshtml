@@ -1,0 +1,63 @@
+﻿<div class="navbar navbar-inverse navbar-fixed-top" style="background: #bbbbbb;">
+    <div class="container">
+        <div class="navbar-header" style="background: #bbbbbb;">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <div>
+                <img src="~/Imagenes/dolar (2).png" style="float:left; margin-top:1%;" />
+                <h5 style="color:white;">Control de Activos</h5>
+            </div>
+        </div>
+        <div class="navbar-collapse collapse" style="background: #bbbbbb;">
+            <ul class="nav navbar-nav" style="background: #bbbbbb;">
+                <li>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:white;">
+                        Mantenimiento
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>@Html.ActionLink("Vendedor", "Index", "Vendedor")</li>
+                        <li>@Html.ActionLink("Activo ", "Index", "Nota")</li>
+                        <li>@Html.ActionLink("Tipos Activo", "Index", "Matricula")</li>
+                        <li>@Html.ActionLink("Marca", "Index", "Nota")</li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="dropdown-toggle" style="color:white;" data-toggle="dropdown">Procesos <span class="caret"></span> </a>
+                    <ul class="dropdown-menu">
+                        <li>@Html.ActionLink("Cálculo Depreciación", "Index", "Nota")</li>
+
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="dropdown-toggle" style="color:white;" data-toggle="dropdown">Reportes <span class="caret"></span> </a>
+                    <ul class="dropdown-menu">
+                        <li>@Html.ActionLink("lista de activos", "Index", "Usuario")</li>
+                        <li>@Html.ActionLink("Fecha de garantia", "Ingreso")</li>
+                        <li>@Html.ActionLink("Grafico Tipo Activo", "Index", "Curso")</li>
+                        <li>@Html.ActionLink("Cierre de Depreciacion", "Index", "Curso")</li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="dropdown-toggle" style="color:white;" data-toggle="dropdown">Administración<span class="caret"></span> </a>
+                    <ul class="dropdown-menu">
+                        <li>@Html.ActionLink("Seguridad", "Index", "Curso")</li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="dropdown-toggle" style="color:white;" data-toggle="dropdown">Calificación<span class="caret"></span> </a>
+                    <ul class="dropdown-menu">
+                        <li>@Html.ActionLink("Auto Calificación", "Index", "Curso")</li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>@Html.ActionLink("Rol", "Sobre", "Home")</li>
+            </ul>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,143 @@
+﻿@model IEnumerable<Infraestructure.Models.Activo>
+
+@{
+    ViewBag.Title = "ListaActivos";
+}
+
+<h2>Lista de Activos</h2>
+
+<p>
+    @Html.ActionLink("Crear un PDF", "CrearPDFActivos")
+</p>
+
+<table class="table table-hover table-striped ">
+    <tr>
+        @*  <th>
+            @Html.DisplayNameFor(model => model.idActivo)
+        </th>
+            <th>
+            @Html.DisplayNameFor(model => model.numSerie)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fechaVenceGarantia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fechaVenceSeguro)
+        </th>
+            <th>
+            @Html.DisplayNameFor(model => model.fotoFactura)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.vidaUtil)
+        </th>
+            <th>
+            @Html.DisplayNameFor(model => model.fechaCompra)
+        </th>
+
+        <th>
+            @Html.DisplayName("Vendedor")
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.descripcion)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.modelo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.precioColones)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.precioDolares)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.precioActual)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.estado)
+        </th>
+        <th>
+            @Html.DisplayName("Asegurado")
+        </th>
+        <th>
+            @Html.DisplayName("Marca")
+        </th>
+        <th>
+            @Html.DisplayName("Tipo de Activo")
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fotoActivo)
+        </th>
+
+    </tr>
+
+  @foreach (var item in Model)  {
+<tr>
+    @* <td>
+            @Html.DisplayFor(modelItem => item.idActivo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.numSerie)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fechaCompra)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fechaVenceGarantia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fechaVenceSeguro)
+        </td>
+        <td>
+            <input type="image" src="data:image/jpeg;charset=utf-8;base64,@Convert.ToBase64String(item.fotoFactura)" id="ImagenFact" style="height:75px;width:75px">
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.vidaUtil)
+        </td>
+        <td>
+            @{
+                Html.RenderAction("GetVendedorActById", "Vendedor", new { id = item.cedVendedor });
+            }
+        </td>
+    *@
+    <td>
+        @Html.DisplayFor(modelItem => item.descripcion)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.modelo)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.precioColones)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.precioDolares)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.precioActual)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.estado)
+    </td>
+    <td>
+        @{
+            Html.RenderAction("GetAseguradoActById", "Asegurado", new { id = item.idAsegurado });
+        }
+    </td>
+    <td>
+        @{
+            Html.RenderAction("GetMarcaActById", "Marca", new { id = item.idMarca });
+        }
+    </td>
+    <td>
+        @{
+            Html.RenderAction("GetTipoActById", "TipoActivo", new { id = item.idTipoActivo });
+        }
+    </td>
+    <td>
+        <input type="image" src="data:image/jpeg;charset=utf-8;base64,@Convert.ToBase64String(item.fotoActivo)" id="ImagenFact" style="height:75px;width:75px">
+    </td>
+
+</tr>
+   }
+
+  </table>

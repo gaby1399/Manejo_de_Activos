@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dbActivosModelStoreContainer" CdmEntityContainer="dbActivosEntities1">
+    <EntitySetMapping Name="Activo">
+      <EntityTypeMapping TypeName="dbActivosModel.Activo">
+        <MappingFragment StoreEntitySet="Activo">
+          <ScalarProperty Name="precioActual" ColumnName="precioActual" />
+          <ScalarProperty Name="vidaUtil" ColumnName="vidaUtil" />
+          <ScalarProperty Name="idActivo" ColumnName="idActivo" />
+          <ScalarProperty Name="numSerie" ColumnName="numSerie" />
+          <ScalarProperty Name="idTipoActivo" ColumnName="idTipoActivo" />
+          <ScalarProperty Name="modelo" ColumnName="modelo" />
+          <ScalarProperty Name="fechaCompra" ColumnName="fechaCompra" />
+          <ScalarProperty Name="precioColones" ColumnName="precioColones" />
+          <ScalarProperty Name="precioDolares" ColumnName="precioDolares" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="fechaVenceGarantia" ColumnName="fechaVenceGarantia" />
+          <ScalarProperty Name="fechaVenceSeguro" ColumnName="fechaVenceSeguro" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="fotoFactura" ColumnName="fotoFactura" />
+          <ScalarProperty Name="fotoActivo" ColumnName="fotoActivo" />
+          <ScalarProperty Name="idMarca" ColumnName="idMarca" />
+          <ScalarProperty Name="idAsegurado" ColumnName="idAsegurado" />
+          <ScalarProperty Name="cedVendedor" ColumnName="cedVendedor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Asegurado">
+      <EntityTypeMapping TypeName="dbActivosModel.Asegurado">
+        <MappingFragment StoreEntitySet="Asegurado">
+          <ScalarProperty Name="idAsegurado" ColumnName="idAsegurado" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HistorialDepreciacion">
+      <EntityTypeMapping TypeName="dbActivosModel.HistorialDepreciacion">
+        <MappingFragment StoreEntitySet="HistorialDepreciacion">
+          <ScalarProperty Name="idDepreciacion" ColumnName="idDepreciacion" />
+          <ScalarProperty Name="idActivo" ColumnName="idActivo" />
+          <ScalarProperty Name="valor" ColumnName="valor" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Marca">
+      <EntityTypeMapping TypeName="dbActivosModel.Marca">
+        <MappingFragment StoreEntitySet="Marca">
+          <ScalarProperty Name="idMarca" ColumnName="idMarca" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rol">
+      <EntityTypeMapping TypeName="dbActivosModel.Rol">
+        <MappingFragment StoreEntitySet="Rol">
+          <ScalarProperty Name="idRol" ColumnName="idRol" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoActivo">
+      <EntityTypeMapping TypeName="dbActivosModel.TipoActivo">
+        <MappingFragment StoreEntitySet="TipoActivo">
+          <ScalarProperty Name="idTipoActivo" ColumnName="idTipoActivo" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuario">
+      <EntityTypeMapping TypeName="dbActivosModel.Usuario">
+        <MappingFragment StoreEntitySet="Usuario">
+          <ScalarProperty Name="loginName" ColumnName="loginName" />
+          <ScalarProperty Name="idRol" ColumnName="idRol" />
+          <ScalarProperty Name="contraseña" ColumnName="contraseña" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="apellido" ColumnName="apellido" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vendedor">
+      <EntityTypeMapping TypeName="dbActivosModel.Vendedor">
+        <MappingFragment StoreEntitySet="Vendedor">
+          <ScalarProperty Name="cedula" ColumnName="cedula" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="apellido" ColumnName="apellido" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

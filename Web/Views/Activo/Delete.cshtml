@@ -1,0 +1,162 @@
+﻿@model Infraestructure.Models.Activo
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+<div>
+    <h4>Activo</h4>
+    <hr />
+    @using (Html.BeginForm("DeleteConfirmed", "Activo"))
+    {
+        @Html.AntiForgeryToken()
+
+<dl class="dl-horizontal">
+    <dt>
+        @Html.DisplayNameFor(model => model.idActivo)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.idActivo)
+        @Html.Hidden("id", Model.idActivo)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.descripcion)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.descripcion)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.numSerie)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.numSerie)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.modelo)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.modelo)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.vidaUtil)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.vidaUtil)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.fechaCompra)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.fechaCompra)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.precioColones)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.precioColones)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.precioDolares)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.precioDolares)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.fechaVenceGarantia)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.fechaVenceGarantia)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.fechaVenceSeguro)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.fechaVenceSeguro)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.estado)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.estado)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.fotoFactura)
+    </dt>
+
+    <dd>
+        <input type="image" src="data:image/jpeg;charset=utf-8;base64,@Convert.ToBase64String(Model.fotoFactura)" id="ImagenFact" style="height:75px;width:75px">
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.fotoActivo)
+    </dt>
+
+    <dd>
+        <input type="image" src="data:image/jpeg;charset=utf-8;base64,@Convert.ToBase64String(Model.fotoActivo)" id="ImagenAct" style="height:75px;width:75px">
+    </dd>
+
+    <dt>
+        @Html.DisplayName("Asegurado")
+    </dt>
+
+    <dd>
+        @{
+            Html.RenderAction("GetAseguradoActById", "Asegurado", new { id = Model.idAsegurado });
+        }
+    </dd>
+
+    <dt>
+        @Html.DisplayName("Marca")
+    </dt>
+
+    <dd>
+        @{
+            Html.RenderAction("GetMarcaActById", "Marca", new { id = Model.idMarca });
+        }
+    </dd>
+
+    <dt>
+        @Html.DisplayName("Tipo de Activo")
+    </dt>
+
+    <dd>
+        @{
+            Html.RenderAction("GetTipoActById", "TipoActivo", new { id = Model.idTipoActivo });
+        }
+    </dd>
+
+    <dt>
+        @Html.DisplayName("Vendedor")
+    </dt>
+
+    <dd>
+        @{
+            Html.RenderAction("GetVendedorActById", "Vendedor", new { id = Model.cedVendedor });
+        }
+    </dd>
+
+</dl>
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn  btn-danger btn-md " /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

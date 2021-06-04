@@ -1,0 +1,67 @@
+﻿@model Web.ViewModels.ViewDetalleActivoHistorial
+
+<h2>Activo</h2>
+
+<div class="row">
+    <div class="col-md-6">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayName("Foto del Activo")
+            </dt>
+            <dd>
+                <input type="image" src="data:image/jpeg;charset=utf-8;base64,@Convert.ToBase64String(Model.Activo.fotoActivo)" style="height:150px;width:150px">
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Activo.descripcion)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Activo.descripcion)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Activo.fechaCompra)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Activo.fechaCompra)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Activo.precioColones)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Activo.precioColones)
+            </dd>
+            <dt>
+                @Html.DisplayName("Factura")
+            </dt>
+            <dd>
+                <input type="image" src="data:image/jpeg;charset=utf-8;base64,@Convert.ToBase64String(Model.Activo.fotoFactura)" style="height:150px;width:150px">
+            </dd>
+        </dl>
+    </div>
+   
+    <div class="col-md-6">
+        <table class="table table-hover table-striped ">
+            <caption style="text-align:center;">Depreciación por periodo</caption>
+            <tr>
+                <th>
+                    @Html.DisplayName("Fecha")
+                </th>
+                <th>
+                    @Html.DisplayName("Precio actual")
+                </th>
+            </tr>
+
+            @foreach (var item in Model.ListaDepreciacion)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Fecha)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.valor)
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>

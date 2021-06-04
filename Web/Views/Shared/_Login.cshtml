@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Control de Activos</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="~/Content/toastr.css">
+</head>
+<body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top" style="background: #bbbbbb;">
+        <div class="container">
+            <div class="navbar-header" style="background: #bbbbbb;">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div>
+                    <img src="~/Imagen/dolar (2).png" style="float:left; margin-top:1%;" />
+                    <h5 style="color:white;">Control de Activos</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content" >
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy;@DateTime.Now.Year - Acme S.A. </p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

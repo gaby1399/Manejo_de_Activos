@@ -1,0 +1,195 @@
+﻿@model IEnumerable<Infraestructure.Models.Usuario>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List</h2>
+@if (TempData["Message"] != null)
+{
+    string mensaje = @"<div class='alert alert-danger alert-dismissible' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+<span aria-hidden='true'>&times;</span> </button><strong>Error!</strong> " + TempData["Message"] + " </div>";
+@Html.Raw(mensaje);
+}
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-hover table-striped ">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.loginName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.apellido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.estado)
+        </th>
+        <th>
+            @Html.DisplayName("Rol")
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.loginName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.apellido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.estado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rol.descripcion)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.loginName }, new { @class = "btn  btn-primary btn-md " })
+                <a onclick="modalDetailLog('@item.loginName')" class="btn btn-warning btn-md" href="#">Details</a>
+                @Html.ActionLink("Delete", "Delete", new { id = item.loginName }, new { @class = "btn  btn-danger btn-md " })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<input type="hidden" id="campoOculto" />
+
+<!-- Modal -->
+<!--Las ventanas modals estan ocultas en el código son activadas por Javascript/JQuery-->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">Detalle del Usuario</h4>
+            </div>
+            <div class="modal-body">
+                @ViewBag.Error
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/toastjs")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Styles.Render("~/Content/cssjqueryui")
+
+    <script>
+
+        $(document).ready(function () {
+                console.log("Entro a JQuery")
+
+            toastr.options = {
+                "closeButton": true,
+                "debug": false,
+                "newestOnTop": false,
+                "progressBar": true,
+                "positionClass": "toast-top-right",
+                "preventDuplicates": false,
+                "onclick": null,
+                "showDuration": "500",
+                "hideDuration": "1000",
+                "timeOut": "1200",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            }
+
+                // Recibe los parámetros del Controller
+                var option = '@ViewBag.Action'
+
+
+
+                if (option == 'S') {
+                    toastr["success"]("Guardado con exito!", "Save");
+                }
+
+
+                 if (option == 'D') {
+                     toastr["warning"]("Eliminado con exito!", "Delete")
+                }
+
+
+                 if (option == 'U') {
+                     toastr["info"]("Actualizado con exito!", "Update")
+                }
+
+            if (option == 'E') {
+                toastr["error"]("Se ha producido un error ", "Error")
+            }
+
+        });
+
+    </script>
+
+    <script>
+        function modalDetailLog(p) {
+            // Almacena el Id del estudiante en el hidden field tipo variable global
+            $("#campoOculto").val(p);
+            // $("#myModal").val(p);
+            //var temp = $("#campoOculto").val();
+            // Invoca al Div de Modal de una vez se invoca el evento shown.bs.modal
+            // donde se invoca al Ajax con el Partial View
+            $("#myModal").modal();
+        }
+    </script>
+
+
+
+    <script>
+        debugger;
+        // Este evento se ejecuta antes después de invocar  $("#myModal").modal();
+        // acá es donde se invoca por Ajax al Controller y este devuelve Partial View
+        $('#myModal').on('shown.bs.modal', function () {
+            // permite mover
+            $('.modal-dialog').draggable();
+            // Se lee el campo oculto
+            var name = $("#campoOculto").val();
+            //var identificacionEstudiante = $("#myModal").val();
+            console.log(name);
+            $.ajax({
+                type: "GET",
+                url: "/Usuario/Details/",
+                // parametro por JSON
+                data: { id: name },
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    $(".modal-body").html(data);
+                },
+                // Capturar errores y mostrar un mensaje de error
+                error: function (xhr, status, error) {
+                    var mensaje = "<div class='alert alert-danger' role='alert'> Result: " +
+                        status + " " + error + " " + xhr.status + " " + xhr.statusText + "</div>";
+                    //debugger;
+                    $("#mensaje").html(mensaje).show("slow").delay(1000).hide("slow");
+                }
+            });
+
+        })
+
+        // Se ejecuta cuando se destruye el modal
+        $("#myModal").on('hide.bs.modal', function () {
+            // Se limpia el Div para no dejar
+            $(".modal-body").html("...");
+        });
+
+    </script>
+
+}

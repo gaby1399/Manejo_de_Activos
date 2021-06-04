@@ -1,0 +1,14 @@
+F:\MVCActivo\ApplicationCore\bin\Release\ApplicationCore.dll
+F:\MVCActivo\ApplicationCore\bin\Release\ApplicationCore.pdb
+F:\MVCActivo\ApplicationCore\bin\Release\Infraestructure.dll
+F:\MVCActivo\ApplicationCore\bin\Release\log4net.dll
+F:\MVCActivo\ApplicationCore\bin\Release\EntityFramework.dll
+F:\MVCActivo\ApplicationCore\bin\Release\Infraestructure.pdb
+F:\MVCActivo\ApplicationCore\bin\Release\Infraestructure.dll.config
+F:\MVCActivo\ApplicationCore\bin\Release\log4net.xml
+F:\MVCActivo\ApplicationCore\bin\Release\EntityFramework.xml
+F:\MVCActivo\ApplicationCore\obj\Release\ApplicationCore.csprojAssemblyReference.cache
+F:\MVCActivo\ApplicationCore\obj\Release\ApplicationCore.csproj.CoreCompileInputs.cache
+F:\MVCActivo\ApplicationCore\obj\Release\ApplicationCore.csproj.CopyComplete
+F:\MVCActivo\ApplicationCore\obj\Release\ApplicationCore.dll
+F:\MVCActivo\ApplicationCore\obj\Release\ApplicationCore.pdb

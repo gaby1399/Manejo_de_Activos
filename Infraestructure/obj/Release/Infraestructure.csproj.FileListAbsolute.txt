@@ -1,0 +1,14 @@
+F:\MVCActivo\Infraestructure\bin\Release\Infraestructure.dll.config
+F:\MVCActivo\Infraestructure\bin\Release\Infraestructure.dll
+F:\MVCActivo\Infraestructure\bin\Release\Infraestructure.pdb
+F:\MVCActivo\Infraestructure\bin\Release\EntityFramework.dll
+F:\MVCActivo\Infraestructure\bin\Release\EntityFramework.SqlServer.dll
+F:\MVCActivo\Infraestructure\bin\Release\log4net.dll
+F:\MVCActivo\Infraestructure\bin\Release\EntityFramework.xml
+F:\MVCActivo\Infraestructure\bin\Release\EntityFramework.SqlServer.xml
+F:\MVCActivo\Infraestructure\bin\Release\log4net.xml
+F:\MVCActivo\Infraestructure\obj\Release\Infraestructure.csprojAssemblyReference.cache
+F:\MVCActivo\Infraestructure\obj\Release\Infraestructure.csproj.CoreCompileInputs.cache
+F:\MVCActivo\Infraestructure\obj\Release\Infraestructure.csproj.CopyComplete
+F:\MVCActivo\Infraestructure\obj\Release\Infraestructure.dll
+F:\MVCActivo\Infraestructure\obj\Release\Infraestructure.pdb

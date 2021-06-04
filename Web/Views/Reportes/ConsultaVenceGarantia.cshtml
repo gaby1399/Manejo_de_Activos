@@ -1,0 +1,90 @@
+﻿
+@{
+    ViewBag.Title = "ConsultaVenceGarantia";
+}
+
+<h2 style="text-align:center">Consultar el vencimiento de la garantia de los activos</h2>
+<br />
+<br />
+@using (Ajax.BeginForm("FiltarFechasGarantia", "Reportes", null, new AjaxOptions
+{
+    HttpMethod = "GET",
+    OnFailure = "onFailureResult",
+    UpdateTargetId = "resultado",
+    InsertionMode = InsertionMode.Replace
+}, new { id = "AjaxForm" }))
+{
+
+    if (TempData["Message"] != null)
+    {
+        string mensaje = @"<div class='alert alert-danger alert-dismissible' role='alert'>
+<strong>Error!</strong> " + TempData["Message"] + "</div>";
+@Html.Raw(mensaje);
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <br />
+                @Html.Label("Fecha Inicial")
+                @Html.TextBox("txtFechaInicial", "01/01/2020", new { @class = "form-control", placeholder = "mm/dd/yyyy" })
+            </div>
+            <div class="form-group">
+                @Html.Label("Fecha Final")
+                @Html.TextBox("txtFechaFinal", "01/09/2020", new { @class = "form-control", placeholder = "mm/dd/yyyy" })
+            </div>
+            <br />
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <button type="submit" class="btn  btn-success">Aceptar</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div id="resultado" />
+        </div>
+    </div>
+</div>
+}
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryajax")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Styles.Render("~/Content/cssjqueryui")
+
+    <script type="text/javascript">
+
+        // Evento que se ejecuta cuando la página esta cargada
+        $(document).ready(function () {
+            $('#txtFechaInicial').datepicker({
+                dateFormat: "dd/mm/yy",
+                changeMonth: true,
+                changeYear: true,
+                yearRange: "-60:+0"
+            });
+
+
+            $('#txtFechaFinal').datepicker({
+                dateFormat: "dd/mm/yy",
+                changeMonth: true,
+                changeYear: true,
+                yearRange: "-60:+0"
+            });
+
+        });
+    </script>
+
+    <script>
+        var onFailureResult = function (err) {
+            // Mostramos un mensaje de error.
+
+            $("#ErrorAlert").show("slow");
+
+        };
+    </script>
+
+
+}

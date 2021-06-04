@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="95f048a8bfdf4dd6863e114fd9e26d7c" Name="Diagram1">
+        <EntityTypeShape EntityType="dbActivosModel.Activo" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbActivosModel.Asegurado" Width="1.5" PointX="0.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbActivosModel.HistorialDepreciacion" Width="1.5" PointX="5.25" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbActivosModel.Marca" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbActivosModel.Rol" Width="1.5" PointX="5.75" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbActivosModel.TipoActivo" Width="1.5" PointX="0.75" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbActivosModel.Usuario" Width="1.5" PointX="8" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbActivosModel.Vendedor" Width="1.5" PointX="0.75" PointY="10.625" IsExpanded="true" />
+        <AssociationConnector Association="dbActivosModel.fk_CodAct" ManuallyRouted="false" />
+        <AssociationConnector Association="dbActivosModel.fk_CodAseg" ManuallyRouted="false" />
+        <AssociationConnector Association="dbActivosModel.fk_CodMarca" ManuallyRouted="false" />
+        <AssociationConnector Association="dbActivosModel.fk_CodTipo" ManuallyRouted="false" />
+        <AssociationConnector Association="dbActivosModel.fk_CodVend" ManuallyRouted="false" />
+        <AssociationConnector Association="dbActivosModel.fk_CodRol" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

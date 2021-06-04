@@ -1,0 +1,285 @@
+﻿@model Infraestructure.Models.Activo
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm("Save", "Activo", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4>Activo</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.idActivo)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.descripcion, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.descripcion, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.descripcion, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.numSerie, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.numSerie, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.numSerie, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.idTipoActivo, "Tipo Activo", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("idTipoActivo", new SelectList(ViewBag.ListaTipo, "idTipoActivo", "descripcion"), htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.idTipoActivo, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.vidaUtil, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.vidaUtil, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.vidaUtil, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.modelo, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.modelo, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.modelo, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.fechaCompra, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.fechaCompra,new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.fechaCompra, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.precioColones, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.precioColones, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.precioColones, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    @* <div class="form-group">
+            @Html.LabelFor(model => model.precioDolares, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.precioDolares, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.precioDolares, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.fechaVenceGarantia, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.fechaVenceGarantia, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.fechaVenceGarantia, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.fechaVenceSeguro, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.fechaVenceSeguro, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.fechaVenceSeguro, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.estado, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <ul>
+                <li> Excelente : @Html.RadioButtonFor(model => model.estado, "Excelente", false)</li>
+                <li> Bueno : @Html.RadioButtonFor(model => model.estado, "Bueno", false)</li>
+                <li> Regular : @Html.RadioButtonFor(model => model.estado, "Regular", false)</li>
+                <li> Malo : @Html.RadioButtonFor(model => model.estado, "Malo", false)</li>
+            </ul>
+            @Html.ValidationMessageFor(model => model.estado, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.fotoFactura, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @*Hay que colocarlo como oculto para que se pueda volver a enviar!*@
+            <input type="file" name="ImageFileFact" />
+            @Html.HiddenFor(model => model.fotoFactura)
+            @Html.ValidationMessageFor(model => model.fotoFactura, "", new { @class = "text-danger" })
+        </div>
+    </div>
+     
+ 
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.fotoActivo, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <input type="file" name="ImageFileA" />
+            @Html.HiddenFor(model => model.fotoActivo)
+            @Html.ValidationMessageFor(model => model.fotoActivo, "", new { @class = "text-danger" })
+            @*Hay que colocarlo como oculto para que se pueda volver a enviar!*@
+            @* @Html.EditorFor(model => model.fotoActivo, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.fotoActivo, "", new { @class = "text-danger" })*@
+        </div>
+    </div>
+
+    <div class="form-group">
+
+        <div class="col-md-10">
+            @Html.Label("Marca", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.TextBoxFor(model => model.idMarca,new { @class = "form-control" })
+            @Html.Label("txtDescripcion", "-", htmlAttributes: new { @class = "control-label col-md-2" })
+
+            @*
+        @Html.HiddenFor(model => model.idMarca);
+        @Html.EditorFor(model => model.idMarca, new { htmlAttributes = new { @class = "form-control", @attribute = "data-codigo" } })
+        @Html.Label("Marca", "*")
+        @Html.ValidationMessageFor(model => model.idMarca, "", new { @class = "text-danger" })*@
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.idAsegurado, "Asegurado", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("idAsegurado", new SelectList(ViewBag.ListaAsegurado, "idAsegurado", "descripcion"), htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.idAsegurado, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.cedVendedor, "Vendedor", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.cedVendedor, new { htmlAttributes = new { @class = "form-control", @attribute = "data-codigo" } })
+            @Html.Label("idVendedor", "*")
+            @Html.ValidationMessageFor(model => model.cedVendedor, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn  btn-success" data-toggle="tooltip" data-placement="top" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Styles.Render("~/Content/cssjqueryui")
+
+    <script>
+        // Habilita los tooltips
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+
+    <script>
+        ////////////////////////////////////////////////////
+        // Busca el Marca                                  //
+        /////////////////////////////////////////////////////
+        $("#idMarca").focus(function () {
+            // Limpia la caja de texto
+            $("#idMarca").val("");
+            console.log($("label[for*='txtDescripcion']").html());
+            $("label[for*='txtDescripcion']").html("-");
+        });
+
+        $("#idMarca").autocomplete({
+            source: function (request, response) {
+                var texto = $("#idMarca").val();
+                debugger;
+                console.log(texto);
+                $.ajax({
+                    type: "GET",
+                    url: "/Marca/GetMarcaByName",
+                    dataType: "json",
+                    data: { name: texto },
+                    success: function (data) {
+                        response($.map(data, function (item) {
+                            console.log(item.descripcion);
+                            //debugger;
+                            return { label: item.descripcion, value: item.idMarca };
+                        }));
+                    },
+                    error: function (xhr, status, error) {
+                        // xhr.requestText
+                        // debugger;
+                        alert("Error: " + error + ", No Error: " + xhr.status);
+                    },
+                });
+            },
+            select: function (event, ui) {
+
+                // Colocar el valor
+                $("#idMarca").val(ui.item.value);
+                // Coloca datos en el Label
+                $("label[for*='txtDescripcion']").html(ui.item.label);
+                return false;
+            }, statusCode: {
+                404: function (content) { alert('cannot find resource'); },
+                500: function (content) { alert('internal server error'); }
+            },
+            error: function (xhr, status, error) {
+                // Muestra posibles errores
+                alert("Error: " + error + ", No Error: " + xhr.status);
+            }
+        });
+    </script>
+
+
+    <script>
+        ////////////////////////////////////////////////////
+        // Busca el cliente por nombre+apellido1+apellido2 //
+        /////////////////////////////////////////////////////
+
+        $("#cedVendedor").autocomplete({
+            source: function (request, response) {
+                var texto = $("#cedVendedor").val();
+                debugger;
+                console.log(texto);
+                $.ajax({
+                    type: "GET",
+                    url: "/Vendedor/GetVendedorByName",
+                    dataType: "json",
+                    data: { name: texto },
+                    success: function (data) {
+                        response($.map(data, function (item) {
+                            console.log(item.nombre);
+                            //debugger;
+                            return { label: item.nombre + " " + item.apellido, value: item.cedula };
+                        }));
+                    },
+                    error: function (xhr, status, error) {
+                        // xhr.requestText
+                        // debugger;
+                        alert("Error: " + error + ", No Error: " + xhr.status);
+                    },
+                });
+            },
+            select: function (event, ui) {
+
+                $("#cedVendedor").val(ui.item.value);
+                $("label[for*='idVendedor']").html(ui.item.label)
+
+                return false;
+            }
+        });
+    </script>
+}

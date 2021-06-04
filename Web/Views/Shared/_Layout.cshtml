@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Control de Activos</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="~/Content/toastr.css">
+</head>
+<body>
+
+  <div class="navbar navbar-inverse navbar-fixed-top" style="background: #bbbbbb;">
+    <div class="container">
+        <div class="navbar-header" style="background: #bbbbbb;">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <div>
+                <img src="~/Imagen/dolar (2).png" style="float:left; margin-top:1%;" />
+                <h5 style="color:white;">Control de Activos</h5>
+            </div>
+        </div>
+        <div class="navbar-collapse collapse" style="background: #bbbbbb;">
+            <ul class="nav navbar-nav" style="background: #bbbbbb;">
+                <li>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:white;">
+                        Mantenimiento
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>@Html.ActionLink("Vendedor", "List", "Vendedor")</li>
+                        <li>@Html.ActionLink("Activo ", "Index", "Activo")</li>
+                        <li>@Html.ActionLink("Tipos Activo", "Index", "TipoActivo")</li>
+                        <li>@Html.ActionLink("Marca", "List", "Marca")</li>
+                        <li>@Html.ActionLink("Asegurado", "Index", "Asegurado")</li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="dropdown-toggle" style="color:white;" data-toggle="dropdown">Procesos <span class="caret"></span> </a>
+                    <ul class="dropdown-menu">
+                        <li>@Html.ActionLink("Cálculo Depreciación", "Create", "Depreciacion")</li>
+
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="dropdown-toggle" style="color:white;" data-toggle="dropdown">Reportes <span class="caret"></span> </a>
+                    <ul class="dropdown-menu">
+                        <li>@Html.ActionLink("Lista de activos", "ListaActivos", "Reportes")</li>
+                        <li>@Html.ActionLink("Consultar Activo", "IndexConsultarActivo", "Reportes")</li>
+                        <li>@Html.ActionLink("Fecha vencimiento de garantia", "ConsultaVenceGarantia", "Reportes")</li>
+                        <li>@Html.ActionLink("Grafico por Tipo Activo", "ConsultarGrafico", "Graficos")</li>
+                        <li>@Html.ActionLink("Cierre de Depreciacion", "ConsultarCierreDepreciacion", "Reportes")</li>
+                        <li>@Html.ActionLink("Analitico de Activos", "AnaliticoActivo", "Graficos")</li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="dropdown-toggle" style="color:white;" data-toggle="dropdown">Administración<span class="caret"></span> </a>
+                    <ul class="dropdown-menu">
+                        <li>@Html.ActionLink("Seguridad", "List", "Usuario")</li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="dropdown-toggle" style="color:white;" data-toggle="dropdown">Calificación<span class="caret"></span> </a>
+                    <ul class="dropdown-menu">
+                        <li>@Html.ActionLink("Auto Calificación", "About", "Home")</li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    @{
+                        string nombre = "";
+                        Infraestructure.Models.Usuario oUsuario;
+                        // Validar si vienen datos en la session
+                        if (Session["User"] != null)
+                        {
+                            // Casting
+                            oUsuario = Session["User"] as Infraestructure.Models.Usuario;
+
+                            if (oUsuario != null)
+                            {
+                                nombre = $"{oUsuario.nombre} {oUsuario.apellido}";
+                            }
+                        }
+
+
+                    }
+
+                    @* <a href="#">
+            Usuario: @nombre
+            <span class="glyphicon  glyphicon-user " aria-hidden="true"></span>
+        </a>*@
+
+                    <a href="#" class="dropdown-toggle" style="color: white;background: #bbbbbb;" data-toggle="dropdown"> Usuario: @nombre <span class="glyphicon  glyphicon-user " aria-hidden="true"></span> </a>
+                    <ul class="dropdown-menu">
+                        <li>@Html.ActionLink("Salir", "Index", "Login")</li>
+
+                    </ul>
+
+</ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy;@DateTime.Now.Year - Acme S.A. </p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Infraestructure.Models.HistorialDepreciacion>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Activo")
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.valor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fecha)
+        </th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @{
+                    Html.RenderAction("GetActById", "Activo", new { id = item.idActivo });
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.valor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fecha)
+            </td>
+        </tr>
+    }
+</table>
+<div>
+    <p>
+        Monto total : @TempData["total"]
+    </p>
+</div>

@@ -1,0 +1,41 @@
+﻿@model Infraestructure.Models.Asegurado
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<div>
+    <h4>Asegurado</h4>
+    <hr />
+    @using (Html.BeginForm("DeleteConfirmed", "Asegurado"))
+    {
+
+        @Html.AntiForgeryToken()
+
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.idAsegurado)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.idAsegurado)
+                @Html.Hidden("id", Model.idAsegurado)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.descripcion)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.descripcion)
+            </dd>
+
+        </dl>
+
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn  btn-danger btn-md " /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Infraestructure.Models.HistorialDepreciacion>
+
+@if (TempData["Save"] != null)
+{
+    string mensaje2 = @"<div class='alert alert-success'>
+<strong>Success!</strong> " + TempData["Save"] + "</div>";
+@Html.Raw(mensaje2);
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Activo")
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.valor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fecha)
+        </th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @{
+                    Html.RenderAction("GetActById", "Activo", new { id = item.idActivo });
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.valor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fecha)
+            </td>
+        </tr>
+    }
+
+</table>

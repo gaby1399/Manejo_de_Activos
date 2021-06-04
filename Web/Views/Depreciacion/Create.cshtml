@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Calcular Depreciación</h2>
+<br/><br />
+@using (Ajax.BeginForm("Save", "Depreciacion", null, new AjaxOptions
+{
+    HttpMethod = "GET",
+    UpdateTargetId = "resultado",
+    InsertionMode = InsertionMode.Replace
+}, new { id = "AjaxForm" }))
+{
+    @Html.AntiForgeryToken()
+
+
+<div class="form-horizontal">
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <button type="submit" class="btn  btn-success">Depreciar todos los activos</button>
+        </div>
+    </div>
+    <br /><br />
+    <div id="resultado" />
+
+</div>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryajax")
+}
+

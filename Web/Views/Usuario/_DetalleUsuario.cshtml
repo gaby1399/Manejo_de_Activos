@@ -1,0 +1,42 @@
+﻿@model Infraestructure.Models.Usuario
+
+    <div>
+        <h4>Usuario</h4>
+        @Html.DisplayFor(model => model.loginName)
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.nombre)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.nombre)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.apellido)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.apellido)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.estado)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.estado)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Rol")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Rol.descripcion)
+            </dd>
+
+        </dl>
+    </div>
+

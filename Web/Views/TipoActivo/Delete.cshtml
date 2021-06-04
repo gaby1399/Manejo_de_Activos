@@ -1,0 +1,38 @@
+﻿@model Infraestructure.Models.TipoActivo
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h4>TipoActivo</h4>
+<hr />
+@using (Html.BeginForm("DeleteConfirmed", "TipoActivo"))
+{
+    @Html.AntiForgeryToken()
+    <div>
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.idTipoActivo)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.idTipoActivo)
+                @Html.Hidden("id", Model.idTipoActivo)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.descripcion)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.descripcion)
+            </dd>
+
+        </dl>
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn  btn-danger btn-md "/> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    </div>
+}

@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Infraestructure.Models.Activo>
+
+<div class="form-group">
+    <br>
+    <table class="table table-hover table-striped ">
+        <caption style="text-align:center">Fechas de vencimiento de Garantias</caption>
+        <thead>
+            <tr>
+                <th>Activo</th>
+                <th>Modelo</th>
+                <th>Fecha</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>  @Html.DisplayFor(modelItem => item.descripcion)</td>
+                <td>  @Html.DisplayFor(modelItem => item.modelo)</td>
+                <td>  @Html.DisplayFor(modelItem => item.fechaVenceGarantia)</td>
+            </tr>
+            }
+            </tbody>
+    </table>
+</div>
